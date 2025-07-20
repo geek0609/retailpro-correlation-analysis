@@ -37,9 +37,24 @@ The analysis uses retail data with 127 records containing:
 
 ## Usage
 
-View the published results at: [GitHub Pages URL will be available after deployment]
+**Live Results**: https://geek0609.github.io/retailpro-correlation-analysis/
 
-Or download the raw JSON data: [correlation_result.json](correlation_result.json)
+**Data Access Options**:
+- **Direct Download**: [correlation_result.json](correlation_result.json)
+- **JSONP Script**: [correlation_result.js](correlation_result.js) (CORS-free)
+- **Embedded in HTML**: Data is embedded in the main page to avoid CORS issues
+
+### CORS-Free Access
+
+The correlation data is available in multiple formats to ensure compatibility:
+
+1. **Embedded in HTML**: Main page loads data without external requests
+2. **JSONP Script**: Load `correlation_result.js` as a script tag:
+   ```html
+   <script src="https://geek0609.github.io/retailpro-correlation-analysis/correlation_result.js"></script>
+   <script>console.log(window.correlationResult);</script>
+   ```
+3. **Direct JSON**: Traditional JSON file (may require CORS handling)
 
 ## Technical Details
 
