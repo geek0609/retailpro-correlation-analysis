@@ -84,20 +84,18 @@
     <p>The strongest correlation (by absolute value) indicates the most significant linear relationship between variables.</p>
 
     <script>
-        // Load and display the correlation result
-        fetch('correlation_result.json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('pair-name').textContent = data.pair;
-                document.getElementById('correlation-value').textContent = data.correlation.toFixed(6);
-                document.getElementById('json-display').textContent = JSON.stringify(data, null, 2);
-            })
-            .catch(error => {
-                console.error('Error loading data:', error);
-                document.getElementById('pair-name').textContent = 'Error loading data';
-                document.getElementById('correlation-value').textContent = 'N/A';
-                document.getElementById('json-display').textContent = 'Error loading JSON data';
-            });
+        // Embedded correlation result data (avoids CORS issues)
+        const correlationData = {
+            "pair": "Avg_Basket-Net_Sales",
+            "correlation": 0.665691
+        };
+
+        // Display the correlation result
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('pair-name').textContent = correlationData.pair;
+            document.getElementById('correlation-value').textContent = correlationData.correlation.toFixed(6);
+            document.getElementById('json-display').textContent = JSON.stringify(correlationData, null, 2);
+        });
     </script>
 </body>
 </html> 
